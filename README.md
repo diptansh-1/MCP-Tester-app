@@ -13,7 +13,7 @@ A web application for testing Model Context Protocol (MCP) servers. This tool al
 
 ## Demo
 
-[Live Demo](https://mcp-tester.vercel.app) - Replace with your deployed app URL
+[Live Demo](https://mcp-tester-app.vercel.app/)
 
 ## Technologies Used
 
