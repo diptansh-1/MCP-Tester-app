@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MCP Tester
 
-## Getting Started
+A web application for testing Model Context Protocol (MCP) servers. This tool allows developers to verify the functionality of MCP servers before integration into their applications.
 
-First, run the development server:
+## Features
 
+- Test MCP servers using direct configuration or installation codes from marketplaces like Smithery
+- Verify server connectivity and functionality
+- Display test results with detailed information
+- Support for any MCP server configuration
+- Clean interface with clear error messages
+- Basic usage documentation
+
+## Demo
+
+[Live Demo](https://mcp-tester.vercel.app) - Replace with your deployed app URL
+
+## Technologies Used
+
+- **Frontend**: React.js
+- **Backend**: Node.js with Next.js API routes
+- **Deployment**: Vercel
+
+## Setup Instructions
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/mcp-tester.git
+cd mcp-tester
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. Start the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-## Learn More
+### Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project can be easily deployed to Vercel or Netlify:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Vercel Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Install the Vercel CLI:
+```bash
+npm install -g vercel
+```
 
-## Deploy on Vercel
+2. Deploy to Vercel:
+```bash
+vercel
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. For production deployment:
+```bash
+vercel --prod
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Netlify Deployment
+
+1. Build the project:
+```bash
+npm run build
+```
+
+2. Install the Netlify CLI:
+```bash
+npm install -g netlify-cli
+```
+
+3. Deploy to Netlify:
+```bash
+netlify deploy
+```
+
+4. For production deployment:
+```bash
+netlify deploy --prod
+```
+
+## Example Test Cases
+
+### 1. Hugging Face Inference API
+Test using GPT-2 model:
+
+```json
+{
+  "serverUrl": "https://api-inference.huggingface.co/models/gpt2",
+  "headers": {
+    "Authorization": "Bearer hf_your_token_here"
+  }
+}
+```
+
+Expected output:
+```json
+{
+  "connectionSuccessful": true,
+  "responseData": {
+    "generated_text": "Your generated response here..."
+  },
+   "latency": "1000-5000ms",
+  "serverInfo": {
+    "model": "Hugging Face Inference API",
+    "endpoint": "https://api-inference.huggingface.co/models/gpt2"
+  }
+}
+```
+Notes:
+- Replace `hf_your_token_here` with your Hugging Face API token
+- Free tier has rate limits
+- Average latency: 2-5 seconds
+- Sign up at https://huggingface.co to get your API token
+
+## Usage
+1. Choose configuration method (Manual or Installation Code)
+2. Enter server details or paste installation code
+3. Enter test prompt
+4. Click "Test MCP Server"
+5. View results including:
+   - Connection status
+   - Server information
+   - Response data
+   - Latency metrics
